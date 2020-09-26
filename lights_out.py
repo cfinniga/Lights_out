@@ -214,38 +214,7 @@ def chase_lights(matrix,width):
                 #solution matrix is incorrect
                 solution[y][x] = 1
                 perform_move(matrix,width,width,y+1,x)
-'''
-def lut(row):
-    if (row=="10001"):
-        return "11000"
-    elif(row == "01010"):
-        return "10010"
-    elif(row == "11100"):
-        return "01000"
-    elif(row == "00111"):
-        return "0010"
-    elif(row == "10110"):
-        return "00001"
-    elif(row == "01101"):
-        return "10000"
-    elif(row=="11011"):
-        return "00100"
 
-def challenge_task(m,width):
-    matrix = copy.deepcopy(m)
-    print("hi",matrix)
-    #matrix = np.array([[0,1,1,0],[1,0,0,1],[0,1,0,1],[1,1,0,0]])
-    print(matrix)
-    solution = np.zeros((width,width))
-    chase_lights(matrix,width)
-    print(matrix)
-    print("sol",solution)
-    #use a lookup table
-    if (is_solved(matrix)):
-        return solution
-    else:
-        lut(matrix[:][width-1])
-    '''
 def a_star(matrix,width):
     '''
     Tries solutions starting with combinations of the minimum number of moves:
