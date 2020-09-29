@@ -1,2 +1,2 @@
-# Lights_out
-A program to solve the game of lights out using linear algebra
+# Lights Out
+A program to solve the game of Lights Out using linear algebra
