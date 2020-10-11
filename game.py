@@ -125,7 +125,6 @@ class Game_solver:
         return one of the moves to solve the game
         '''
         self.solve(matrix,length,width)
-        print("sol",self.solution)
         indices = []
         if self.solution.any():
             for idx, item in enumerate(self.solution):
