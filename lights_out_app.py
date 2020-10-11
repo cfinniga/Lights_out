@@ -10,9 +10,9 @@ sg.theme('DarkAmber')
 length = 4
 width = length
 
-
+# Create layout
 layout = [[sg.B(str(j*length+i), size=(8,4), key=(i,j), button_color=('black','white')) for i in range(length)] for j in range(width)]
-layout2 = [sg.B('Start'), sg.B('Hint')]
+layout2 = [sg.B('Start'), sg.B('Hint')]#,sg.Text('',key='hint text')]
 layout.append(layout2)
 
 # Create the Window
@@ -22,7 +22,7 @@ def update_gui():
     for i, row in enumerate(game.matrix):
         for j, value in enumerate(row):
             if value == 1:
-                layout[i][j].update(button_color=('yellow', 'purple'))
+                layout[i][j].update(button_color=('white', 'purple'))
             else:
                 layout[i][j].update(button_color=('black','white'))
 
@@ -37,17 +37,18 @@ while True:
         break
     
     game = logame.Game(length, width)
-    
     text = window[event].get_text()
     
     if text == 'Start':
         game.scramble()
         update_gui()
+        
     else:
         continue
                         
     while True:
         event, values = window.read()
+        
         if event == sg.WIN_CLOSED or event == 'Cancel':
             break
 
@@ -55,10 +56,12 @@ while True:
         
         if text == 'Hint':
             hint = game.get_hint()
-            print(hint)
+            sg.popup('hint',hint)
+            
         elif text == 'Start':
             game.scramble()
             update_gui()
+            
         else:
             num = int(text)
             x = (num)%length
@@ -67,5 +70,6 @@ while True:
             update_gui()
 
         if logame.is_solved(game.matrix):
-            print("won")
+            sg.popup('You won!')
+            
 window.close()
