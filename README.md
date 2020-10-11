@@ -7,6 +7,8 @@ Click a tile to turn off the light of that tile and all neighboring tiles. The g
 ![](lightsout_hints.gif)
 
 ## How to run the project
+Run lights_out_app.py
+
 ### Modules needed
 PySimpleGUI, numpy, copy, math, itertool, random
 
